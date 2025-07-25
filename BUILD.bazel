@@ -1,0 +1,36 @@
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+filegroup(
+    name = "go_srcs_files",
+    srcs = [
+        "//dolt/services/eventsapi/v1alpha1:eventsapi_go_proto",
+    ],
+    output_group = "go_generated_srcs",
+)
+
+pkg_tar(
+    name = "go_srcs",
+    srcs = [
+        ":go_srcs_files",
+    ],
+    mode = "0644",
+    remap_paths = {
+        "dolt/services/eventsapi/v1alpha1/eventsapi_go_proto_/github.com/dolthub/eventsapi_schema": "/",
+    },
+    strip_prefix = "./",
+)
+
+sh_binary(
+    name = "update",
+    srcs = ["update.sh"],
+    args = [
+        "$(rlocationpath :go_srcs)",
+    ],
+    data = [
+        ":go_srcs",
+    ],
+    deps = [
+        "@bazel_tools//tools/bash/runfiles",
+    ],
+)
