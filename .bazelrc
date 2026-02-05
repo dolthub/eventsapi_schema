@@ -1,8 +1,11 @@
+import %workspace%/tools/preset.bazelrc
+
 common --enable_platform_specific_config
+build --@protobuf//bazel/toolchains:prefer_prebuilt_protoc
 build --experimental_proto_descriptor_sets_include_source_info
 build --action_env=PATH=/usr/bin:/bin:/sbin
 build --action_env=TMPDIR=/tmp
 build --action_env=LD_LIBRARY_PATH=
-build --incompatible_enable_cc_toolchain_resolution
-build --incompatible_strict_action_env
-run --incompatible_strict_action_env
+build --repo_env=PATH=/usr/bin:/bin:/sbin
+build --repo_env=TMPDIR=/tmp
+build --repo_env=LD_LIBRARY_PATH=
