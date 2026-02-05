@@ -114,4 +114,5 @@ enum AppID {
     APP_ID_UNSPECIFIED = 0;
     APP_DOLT = 1;
     APP_DOLTGRES = 2;
+    APP_DOLT_EMBEDDED = 3;
 }
