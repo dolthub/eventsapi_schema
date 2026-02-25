@@ -1,5 +1,6 @@
 load("@rules_go//proto:def.bzl", "go_proto_library")
 load("@protobuf//bazel:proto_library.bzl", "proto_library")
+load("//:defs.bzl", "typescript_proto_library")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -16,5 +17,10 @@ go_proto_library(
     name = "eventsapi_go_proto",
     compilers = ["@rules_go//proto:go_grpc"],
     importpath = "github.com/dolthub/eventsapi_schema/dolt/services/eventsapi/v1alpha1",
+    proto = ":eventsapi_proto",
+)
+
+typescript_proto_library(
+    name = "eventsapi_ts_proto",
     proto = ":eventsapi_proto",
 )
