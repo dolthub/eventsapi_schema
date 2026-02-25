@@ -105,7 +105,9 @@ proto.dolt.services.eventsapi.v1alpha1.ClientEventType = {
   PROFILE: 62,
   REFLOG: 63,
   SQL_SERVER_HEARTBEAT: 64,
-  REBASE: 65
+  REBASE: 65,
+  DOLT_WORKBENCH_APP_OPENED: 66,
+  DOLT_WORKBENCH_AGENT_CONNECTED: 67
 };
 
 /**
@@ -133,7 +135,8 @@ proto.dolt.services.eventsapi.v1alpha1.AppID = {
   APP_ID_UNSPECIFIED: 0,
   APP_DOLT: 1,
   APP_DOLTGRES: 2,
-  APP_DOLT_EMBEDDED: 3
+  APP_DOLT_EMBEDDED: 3,
+  APP_DOLT_WORKBENCH: 4
 };
 
 goog.object.extend(exports, proto.dolt.services.eventsapi.v1alpha1);

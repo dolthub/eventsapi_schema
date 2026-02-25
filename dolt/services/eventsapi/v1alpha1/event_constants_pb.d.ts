@@ -79,6 +79,8 @@ export interface ClientEventTypeMap {
   REFLOG: 63;
   SQL_SERVER_HEARTBEAT: 64;
   REBASE: 65;
+  DOLT_WORKBENCH_APP_OPENED: 66;
+  DOLT_WORKBENCH_AGENT_CONNECTED: 67;
 }
 
 export const ClientEventType: ClientEventTypeMap;
@@ -104,6 +106,7 @@ export interface AppIDMap {
   APP_DOLT: 1;
   APP_DOLTGRES: 2;
   APP_DOLT_EMBEDDED: 3;
+  APP_DOLT_WORKBENCH: 4;
 }
 
 export const AppID: AppIDMap;
