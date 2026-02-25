@@ -15,7 +15,7 @@ GO_ROOT="$BUILD_WORKSPACE_DIRECTORY"
 
 # First, clean up any existing files.
 
-(cd "$GO_ROOT" && find . -name '*.pb.go' -exec rm -f \{\} \;)
+(cd "$GO_ROOT" && find dolt \( -name '*.pb.go' -o -name '*.js' -o -name '*.d.ts' \) -exec rm -f \{\} \;)
 
 # Then unpack generated sources into the correct place.
 

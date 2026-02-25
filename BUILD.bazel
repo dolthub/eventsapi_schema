@@ -1,5 +1,18 @@
+load("@npm//:defs.bzl", "npm_link_all_packages")
+load("@npm//:ts-protoc-gen/package_json.bzl", "bin")
 load("@rules_pkg//:pkg.bzl", "pkg_tar")
 load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load(":defs.bzl", "is_windows")
+
+is_windows(name = "is_windows")
+
+npm_link_all_packages(
+    name = "node_modules",
+)
+
+bin.protoc_gen_ts_binary(
+    name = "protoc-gen-ts",
+)
 
 filegroup(
     name = "go_srcs_files",
@@ -10,9 +23,10 @@ filegroup(
 )
 
 pkg_tar(
-    name = "go_srcs",
+    name = "srcs",
     srcs = [
         ":go_srcs_files",
+        "//dolt/services/eventsapi/v1alpha1:eventsapi_ts_proto",
     ],
     mode = "0644",
     remap_paths = {
@@ -25,10 +39,10 @@ sh_binary(
     name = "update",
     srcs = ["update.sh"],
     args = [
-        "$(rlocationpath :go_srcs)",
+        "$(rlocationpath :srcs)",
     ],
     data = [
-        ":go_srcs",
+        ":srcs",
     ],
     deps = [
         "@bazel_tools//tools/bash/runfiles",
