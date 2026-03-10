@@ -158,6 +158,8 @@ const (
 	ClientEventType_REFLOG                           ClientEventType = 63
 	ClientEventType_SQL_SERVER_HEARTBEAT             ClientEventType = 64
 	ClientEventType_REBASE                           ClientEventType = 65
+	ClientEventType_DOLT_WORKBENCH_APP_OPENED        ClientEventType = 66
+	ClientEventType_DOLT_WORKBENCH_AGENT_CONNECTED   ClientEventType = 67
 )
 
 // Enum value maps for ClientEventType.
@@ -229,6 +231,8 @@ var (
 		63: "REFLOG",
 		64: "SQL_SERVER_HEARTBEAT",
 		65: "REBASE",
+		66: "DOLT_WORKBENCH_APP_OPENED",
+		67: "DOLT_WORKBENCH_AGENT_CONNECTED",
 	}
 	ClientEventType_value = map[string]int32{
 		"TYPE_UNSPECIFIED":                 0,
@@ -297,6 +301,8 @@ var (
 		"REFLOG":                           63,
 		"SQL_SERVER_HEARTBEAT":             64,
 		"REBASE":                           65,
+		"DOLT_WORKBENCH_APP_OPENED":        66,
+		"DOLT_WORKBENCH_AGENT_CONNECTED":   67,
 	}
 )
 
@@ -432,6 +438,7 @@ const (
 	AppID_APP_DOLT           AppID = 1
 	AppID_APP_DOLTGRES       AppID = 2
 	AppID_APP_DOLT_EMBEDDED  AppID = 3
+	AppID_APP_DOLT_WORKBENCH AppID = 4
 )
 
 // Enum value maps for AppID.
@@ -441,12 +448,14 @@ var (
 		1: "APP_DOLT",
 		2: "APP_DOLTGRES",
 		3: "APP_DOLT_EMBEDDED",
+		4: "APP_DOLT_WORKBENCH",
 	}
 	AppID_value = map[string]int32{
 		"APP_ID_UNSPECIFIED": 0,
 		"APP_DOLT":           1,
 		"APP_DOLTGRES":       2,
 		"APP_DOLT_EMBEDDED":  3,
+		"APP_DOLT_WORKBENCH": 4,
 	}
 )
 
@@ -487,7 +496,7 @@ const file_dolt_services_eventsapi_v1alpha1_event_constants_proto_rawDesc = "" +
 	"\x05LINUX\x10\x01\x12\v\n" +
 	"\aWINDOWS\x10\x02\x12\n" +
 	"\n" +
-	"\x06DARWIN\x10\x03*\xaf\b\n" +
+	"\x06DARWIN\x10\x03*\xf2\b\n" +
 	"\x0fClientEventType\x12\x14\n" +
 	"\x10TYPE_UNSPECIFIED\x10\x00\x12\b\n" +
 	"\x04INIT\x10\x01\x12\n" +
@@ -566,7 +575,9 @@ const file_dolt_services_eventsapi_v1alpha1_event_constants_proto_rawDesc = "" +
 	"\x06REFLOG\x10?\x12\x18\n" +
 	"\x14SQL_SERVER_HEARTBEAT\x10@\x12\n" +
 	"\n" +
-	"\x06REBASE\x10A*j\n" +
+	"\x06REBASE\x10A\x12\x1d\n" +
+	"\x19DOLT_WORKBENCH_APP_OPENED\x10B\x12\"\n" +
+	"\x1eDOLT_WORKBENCH_AGENT_CONNECTED\x10C*j\n" +
 	"\bMetricID\x12\x16\n" +
 	"\x12METRIC_UNSPECIFIED\x10\x00\x12\x14\n" +
 	"\x10BYTES_DOWNLOADED\x10\x01\x12\x17\n" +
@@ -574,12 +585,13 @@ const file_dolt_services_eventsapi_v1alpha1_event_constants_proto_rawDesc = "" +
 	"\x13REMOTEAPI_RPC_ERROR\x10\x03*E\n" +
 	"\vAttributeID\x12\x19\n" +
 	"\x15ATTRIBUTE_UNSPECIFIED\x10\x00\x12\x15\n" +
-	"\x11REMOTE_URL_SCHEME\x10\x02\"\x04\b\x01\x10\x01*V\n" +
+	"\x11REMOTE_URL_SCHEME\x10\x02\"\x04\b\x01\x10\x01*n\n" +
 	"\x05AppID\x12\x16\n" +
 	"\x12APP_ID_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bAPP_DOLT\x10\x01\x12\x10\n" +
 	"\fAPP_DOLTGRES\x10\x02\x12\x15\n" +
-	"\x11APP_DOLT_EMBEDDED\x10\x03BPZNgithub.com/dolthub/eventsapi_schema/dolt/services/eventsapi/v1alpha1;eventsapib\x06proto3"
+	"\x11APP_DOLT_EMBEDDED\x10\x03\x12\x16\n" +
+	"\x12APP_DOLT_WORKBENCH\x10\x04BPZNgithub.com/dolthub/eventsapi_schema/dolt/services/eventsapi/v1alpha1;eventsapib\x06proto3"
 
 var (
 	file_dolt_services_eventsapi_v1alpha1_event_constants_proto_rawDescOnce sync.Once
