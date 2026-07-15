@@ -439,6 +439,7 @@ const (
 	AppID_APP_DOLTGRES       AppID = 2
 	AppID_APP_DOLT_EMBEDDED  AppID = 3
 	AppID_APP_DOLT_WORKBENCH AppID = 4
+	AppID_APP_DUMBODB        AppID = 5
 )
 
 // Enum value maps for AppID.
@@ -449,6 +450,7 @@ var (
 		2: "APP_DOLTGRES",
 		3: "APP_DOLT_EMBEDDED",
 		4: "APP_DOLT_WORKBENCH",
+		5: "APP_DUMBODB",
 	}
 	AppID_value = map[string]int32{
 		"APP_ID_UNSPECIFIED": 0,
@@ -456,6 +458,7 @@ var (
 		"APP_DOLTGRES":       2,
 		"APP_DOLT_EMBEDDED":  3,
 		"APP_DOLT_WORKBENCH": 4,
+		"APP_DUMBODB":        5,
 	}
 )
 
@@ -585,13 +588,14 @@ const file_dolt_services_eventsapi_v1alpha1_event_constants_proto_rawDesc = "" +
 	"\x13REMOTEAPI_RPC_ERROR\x10\x03*E\n" +
 	"\vAttributeID\x12\x19\n" +
 	"\x15ATTRIBUTE_UNSPECIFIED\x10\x00\x12\x15\n" +
-	"\x11REMOTE_URL_SCHEME\x10\x02\"\x04\b\x01\x10\x01*n\n" +
+	"\x11REMOTE_URL_SCHEME\x10\x02\"\x04\b\x01\x10\x01*\x7f\n" +
 	"\x05AppID\x12\x16\n" +
 	"\x12APP_ID_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bAPP_DOLT\x10\x01\x12\x10\n" +
 	"\fAPP_DOLTGRES\x10\x02\x12\x15\n" +
 	"\x11APP_DOLT_EMBEDDED\x10\x03\x12\x16\n" +
-	"\x12APP_DOLT_WORKBENCH\x10\x04BPZNgithub.com/dolthub/eventsapi_schema/dolt/services/eventsapi/v1alpha1;eventsapib\x06proto3"
+	"\x12APP_DOLT_WORKBENCH\x10\x04\x12\x0f\n" +
+	"\vAPP_DUMBODB\x10\x05BPZNgithub.com/dolthub/eventsapi_schema/dolt/services/eventsapi/v1alpha1;eventsapib\x06proto3"
 
 var (
 	file_dolt_services_eventsapi_v1alpha1_event_constants_proto_rawDescOnce sync.Once
