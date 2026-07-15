@@ -136,7 +136,8 @@ proto.dolt.services.eventsapi.v1alpha1.AppID = {
   APP_DOLT: 1,
   APP_DOLTGRES: 2,
   APP_DOLT_EMBEDDED: 3,
-  APP_DOLT_WORKBENCH: 4
+  APP_DOLT_WORKBENCH: 4,
+  APP_DUMBODB: 5
 };
 
 goog.object.extend(exports, proto.dolt.services.eventsapi.v1alpha1);
